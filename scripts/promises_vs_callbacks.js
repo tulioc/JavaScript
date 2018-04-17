@@ -1,3 +1,4 @@
+// Callback
 const getData = (callback) => {
   setTimeout(() => {
     callback(undefined, 'Deu bom! - Callback');
@@ -12,8 +13,7 @@ getData((err, data) => {
   }
 });
 
-
-
+// Promises
 const myPromise = new Promise( (resolve, reject) => {
   setTimeout(() => {
     resolve('Deu bom! - Promise');

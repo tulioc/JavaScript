@@ -22,27 +22,33 @@ Talvez a forma mais primitiva de fazer um request com javascript seja utilizando
 ## Callback
 
 ```javascript
-
 const getData = (callback) => {
-  const request = new XMLHttpRequest();
-  request.addEventListener('readystatechange', (e) => {
-    const DONE = 4;
-    if(e.target.readyState === DONE) {
-      const data = JSON.parse(e.target.responseText)
-      callback(undefined, data);
-    }
-  });
-  request.open('GET', 'http://puzzle.mead.io/puzzle');
-  request.send();
+  setTimeout(() => {
+    callback(undefined, 'Deu bom! - Callback');
+  }, 2000);
 }
 
-
-getData((error, data) => {
-  if(error) {
-    console.log(`Error: ${error}`);
+getData((err, data) => {
+  if(err) {
+    console.log(err);
   } else {
-    console.log(data.puzzle);
+    console.log(data);
   }
 });
+```
 
+## Promise
+
+```javascript
+const myPromise = new Promise( (resolve, reject) => {
+  setTimeout(() => {
+    resolve('Deu bom! - Promise');
+  }, 2000)
+});
+
+myPromise.then((data) => {
+  console.log(data)
+}, (err) => {
+  console.log(err);
+});
 ```
