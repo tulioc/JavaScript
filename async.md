@@ -40,7 +40,7 @@ getData((err, data) => {
 ## Promise
 
 ```javascript
-const myPromise = new Promise( (resolve, reject) => {
+const myPromise = new Promise((resolve, reject) => {
   setTimeout(() => {
     resolve('Deu bom! - Promise');
   }, 2000)
